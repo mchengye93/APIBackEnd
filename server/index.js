@@ -80,7 +80,6 @@ const getAllTagsPost = (tags, callback) => {
   }
   Promise.all(promises).then((result) => {
     const mergedResult = [].concat(...result);
-    // console.log('All promises result!', mergedResult);
     callback(null, mergedResult);
   }).catch((error) => {
     callback(error, null);
