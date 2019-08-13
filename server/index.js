@@ -37,8 +37,7 @@ app.get('/api/posts', (req, res) => {
   }
 
   console.log(tags);
-  console.log(sortBy);
-  console.log(direction);
+
 
   getAllTagsPost(tags, (err, data) => {
     if (err) {
