@@ -49,7 +49,6 @@ app.get('/api/posts', (req, res) => {
     data.sort(sortPosts(sortBy, direction));
 
     res.json({ posts: data });
-    // sortBy/direction
   });
 });
 
