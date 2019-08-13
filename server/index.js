@@ -23,6 +23,7 @@ app.get('/api/posts', (req, res) => {
   const tags = req.query.tags.split(',');
   let sortBy = 'id';
   let direction = 'asc';
+
   if (req.query.tags === undefined) {
     res.status(400);
     res.send({ error: 'Tags parameter is required' });
