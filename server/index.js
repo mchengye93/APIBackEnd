@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-app.get('/', (req, res) => res.send('Welcome to  Hatchway Backend App!'));
+app.get('/', (req, res) => res.send('Welcome to Backend App!'));
 
 app.get('/api/ping', (req, res) => {
   res.status(200);
