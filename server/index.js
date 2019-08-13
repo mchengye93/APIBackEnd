@@ -42,7 +42,6 @@ app.get('/api/posts', (req, res) => {
       res.status(400);
       res.send({ error: 'Tags parameter is not valid' });
     }
-    // const sortedPosts = sortPosts(sortBy, direction, data);
     if (data[0][sortBy] === undefined) {
       res.status(400);
       res.send({ error: 'sortBy parameter is invalid' });
@@ -77,6 +76,7 @@ const getAllTagsPost = (tags, callback) => {
     });
     promises.push(promise);
   }
+
   Promise.all(promises).then((result) => {
     const mergedResult = [].concat(...result);
     callback(null, mergedResult);
@@ -104,4 +104,5 @@ const sortPosts = (key, order) => function (a, b) {
     (order === 'desc') ? (comparison * -1) : comparison
   );
 };
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
