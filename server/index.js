@@ -36,9 +36,6 @@ app.get('/api/posts', (req, res) => {
     direction = req.query.direction;
   }
 
-  console.log(tags);
-
-
   getAllTagsPost(tags, (err, data) => {
     if (err) {
       res.status(400);
