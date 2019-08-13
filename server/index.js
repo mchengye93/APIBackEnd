@@ -101,7 +101,7 @@ const sortPosts = (key, order) => function (a, b) {
     comparison = -1;
   }
   return (
-    (order == 'desc') ? (comparison * -1) : comparison
+    (order === 'desc') ? (comparison * -1) : comparison
   );
 };
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
