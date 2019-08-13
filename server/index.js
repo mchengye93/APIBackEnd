@@ -20,8 +20,6 @@ app.get('/api/ping', (req, res) => {
 });
 
 app.get('/api/posts', (req, res) => {
-  console.log(req.query);
-
   const tags = req.query.tags.split(',');
   let sortBy = 'id';
   let direction = 'asc';
