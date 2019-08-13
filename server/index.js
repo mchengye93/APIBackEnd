@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable no-use-before-define */
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -53,14 +54,12 @@ app.get('/api/posts', (req, res) => {
 });
 
 const getAllTagsPost = (tags, callback) => {
-  // guarrantee unique posts
   const existingPost = {};
   const promises = [];
 
   for (let i = 0; i < tags.length; i += 1) {
     const promise = new Promise((resolve, reject) => {
       axios.get(`https://hatchways.io/api/assessment/blog/posts?tag=${tags[i]}`).then((response) => {
-        // console.log(response);
         const { posts } = response.data;
         const list = [];
         for (let x = 0; x < posts.length; x += 1) {
