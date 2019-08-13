@@ -88,7 +88,6 @@ const getAllTagsPost = (tags, callback) => {
 
 const sortPosts = (key, order) => function (a, b) {
   if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-    // property doesn't exist on either object
     return 0;
   }
 
