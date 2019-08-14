@@ -48,15 +48,6 @@ describe('Testing sortBy parameter', () => {
       done();
     });
   });
-
-  it('Test an invalid sortBy parameter', (done) => {
-    request('http://localhost:3000/api/posts?tags=tech&sortBy=liks&direction=desc', (err, response, body) => {
-      const error = { error: 'sortBy parameter is invalid' };
-      assert.equal(400, response.statusCode);
-      assert.deepEqual(body, JSON.stringify(error));
-      done();
-    });
-  });
 });
 /* Test direction parameter */
 
