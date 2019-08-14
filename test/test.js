@@ -60,9 +60,17 @@ describe('Testing sortBy parameter', () => {
 /* Test direction parameter */
 
 describe('Testing direction parameter', () => {
-  it('Testing valid sortBy parameter', (done) => {
+  it('Testing valid direction parameter', (done) => {
     request('http://localhost:3000/api/posts?tags=tech&sortBy=likes&direction=desc', (err, response, body) => {
       assert.equal(200, response.statusCode);
+      done();
+    });
+  });
+  it('Test an invalid direction parameter', (done) => {
+    request('http://localhost:3000/api/posts?tags=tech&sortBy=likes&direction=ascd', (err, response, body) => {
+      const error = { error: 'direction parameter is invalid' };
+      assert.equal(400, response.statusCode);
+      assert.deepEqual(body, JSON.stringify(error));
       done();
     });
   });
