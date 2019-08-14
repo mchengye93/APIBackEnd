@@ -76,7 +76,7 @@ const getAllTagsPost = (tags, callback) => {
           }
         }
         if (list.length === 0) {
-          reject(`Invalid paramenter${tags[i]}`);
+          reject(new Error(`Invalid tag parameter ${tags[i]}`));
         }
         resolve(list);
       }).catch((error) => {
