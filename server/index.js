@@ -30,6 +30,12 @@ app.get('/api/posts', (req, res) => {
     res.send({ error: 'Tags parameter is required' });
   }
 
+  const directions = ['asc', 'desc'];
+  if (req.query.direction && !directions.includes(req.query.direction)) {
+    res.status(400);
+    res.send({ error: 'direction parameter is invalid' });
+  }
+
   if (req.query.sortBy !== undefined) {
     sortBy = req.query.sortBy;
   }
@@ -68,6 +74,9 @@ const getAllTagsPost = (tags, callback) => {
             existingPost[post.id] = 1;
             list.push(post);
           }
+        }
+        if (list.length === 0) {
+          reject(`Invalid paramenter${tags[i]}`);
         }
         resolve(list);
       }).catch((error) => {
